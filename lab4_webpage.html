@@ -1,0 +1,74 @@
+<html>
+<head>
+    <link rel="stylesheet" href="lab4_webpage.css">
+    <title>INST377 Lab 4</title>
+
+    <div class="header">
+        <header><h1 id="head">INST377 - Lab 4</h1></header>
+    </div>
+</head>
+<body>
+    <div class="form" id="nameAlert">
+        <form name="credentials" onsubmit="alertMe()">
+            <label for="flname"> Name:</label>
+            <input type="text" id="flname" required>
+            <input type="submit" value="Alert Me!">
+
+        </form>
+    </div>
+    <div class="button" id="color_button">
+        <button onclick="changeColor()">Change Color</button>
+    </div>
+    <div class="form">
+        <form name="testerForm" onsubmit="validate()">
+            <label for="test"> Text Tester:</label>
+            <input type="text" id="tester">
+            <input type="submit" value="Validate Text">
+
+        </form>
+    </div>
+    <div class="button" id="text_button">
+        <button onclick="addText()">Add Text</button>
+    </div>
+
+    <script type="text/javascript">
+        function alertMe(){
+            let t = document.getElementById("flname").value;
+            alert("Hi " + t);
+
+        }
+        function changeColor(){
+            if (document.body.style.backgroundColor === "aqua") {
+                document.body.style.backgroundColor = "red";
+            } else if (document.body.style.backgroundColor === "red") {
+                document.body.style.backgroundColor = "yellow";
+            } else if (document.body.style.backgroundColor === "yellow") {
+                document.body.style.backgroundColor = "aqua";
+            } else {
+                document.body.style.backgroundColor = "aqua";
+                }
+        }
+        function validate(){
+            var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+
+            if (validation.test(document.testerForm.tester.value)){
+                alert("Blocked, You can't use those special letters.")
+                return false
+            }
+        }
+        function addText(){
+            document.getElementById("head").innerHTML += " Add Text";
+
+
+            
+            
+
+        }
+        
+
+        
+
+    </script>
+
+</body>
+</html>
